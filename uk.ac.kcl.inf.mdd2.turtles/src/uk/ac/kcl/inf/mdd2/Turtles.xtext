@@ -55,17 +55,15 @@ Multiplication returns IntExpression:
 ;
 
 PrimaryExpression returns IntExpression:
-	NumberLiteral |
-	VarReference |
+	IntLiteral |
+	VariableReference |
 	'(' Addition ')'
 ;
 
-NumberLiteral:
+IntLiteral:
     val=INT
 ;
     
-VarReference:
+VariableReference:
     var = [VariableDeclaration]
 ;
-    
-
