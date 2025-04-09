@@ -21,13 +21,13 @@ VariableDeclaration:
 ;
 
 LoopStatement:
-	count = Addition "times" "do"
+	count = IntExpression "times" "do"
 	  statements += Statement+
 	"end"
 ;
 
 MoveStatement:
-	command = MoveCommand "(" steps = Addition ")"
+	command = MoveCommand "(" steps = IntExpression ")"
 ;
 
 enum MoveCommand:
@@ -55,7 +55,17 @@ Multiplication returns Expression:
 ;
 
 IntExpression returns Expression:
-	val = INT |
-	var = [VariableDeclaration] |
+	NumberLiteral |
+	VarReference |
 	'(' Addition ')'
 ;
+
+NumberLiteral:
+    val=INT
+;
+    
+VarReference:
+    var = [VariableDeclaration]
+;
+    
+
