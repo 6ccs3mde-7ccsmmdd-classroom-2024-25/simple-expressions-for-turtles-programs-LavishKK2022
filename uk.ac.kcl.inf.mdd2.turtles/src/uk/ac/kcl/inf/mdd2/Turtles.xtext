@@ -54,7 +54,7 @@ Multiplication returns Expression:
     IntExpression ({Multiplication.left=current} '*' right += IntExpression)*
 ;
 
-IntExpression:
+IntExpression returns Expression:
 	val = INT |
 	var = [VariableDeclaration] |
 	'(' Addition ')'
